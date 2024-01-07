@@ -42,21 +42,6 @@ class RoomController extends Controller
      */
     public function show($slug)
     {
-        // $event = Event::with('channels.rooms.sessions')->where('slug', $slug)->first();
-        // $sessions = $event->channels->flatMap->rooms->flatMap->sessions;
-        // $id = $sessions->pluck('id');
-        // $sessions_title = $sessions->pluck('title');
-        // $rooms_capacity = $sessions->pluck('room.capacity');
-
-        // $rgCount = SessionRegistration::selectRaw('session_id, COUNT(*) as count')
-        // ->whereIn('session_id', $id)
-        // ->groupBy('session_id')
-        // ->get()
-        // ->pluck('count', 'session_id')
-        // ->union($id->flip()->map(function (){
-        //     return 0;
-        // }))->sortKeys();
-
         $event = Event::with('channels.rooms.sessions')->where('slug', $slug)->first();
         $sessions = $event->channels->flatMap->rooms->flatMap->sessions;
         $id = $sessions->pluck('id');
